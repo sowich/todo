@@ -1,0 +1,16 @@
+# cp ./todo.service /etc/systemd/system/todo.service
+[Unit]
+Description=Docker Compose Application Service
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/home/sowich/dev/todo
+ExecStart=make up
+ExecStop=make down
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target

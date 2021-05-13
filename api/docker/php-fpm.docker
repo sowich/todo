@@ -1,0 +1,8 @@
+FROM php:7.3-fpm
+
+#ADD ./php/default.ini /usr/local/etc/php/conf.d/default.ini
+
+RUN usermod -u 1000 www-data
+RUN usermod -G staff www-data
+
+WORKDIR /var/www
